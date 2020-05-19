@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navigation from './component/navigation/navigation.component';
+import MovieList from './component/movie-list/movie-list.component';
+import Spinner from './component/spinner/spinner.component';
+import {BrowserRouter as Router} from "react-router-dom";
+import './App.scss';
+import MovieProvider from "./context/MovieProvider.provider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <MovieProvider>
+          <Router>
+              <div className="App">
+                  <Navigation></Navigation>
+                  <MovieList></MovieList>
+                  <Spinner></Spinner>
+              </div>
+          </Router>
+      </MovieProvider>
   );
 }
 

@@ -1,23 +1,21 @@
 import React, { useContext } from 'react';
 import MovieContext from '../../context/MovieContext.context';
-import './movie-list.styles.scss';
-import MovieCard from '../movie-card/movie-card.component';
+import './spinner.styles.scss';
 
 
-const MovieList = () => {
+const Spinner = () => {
 
-    const data = useContext(MovieContext);
-    // let [movies, setMovies] = useState([
-    //
-    // ]);
-
-    const { filteredMovies, isLoading } = data;
+    const { isLoading } = useContext(MovieContext);
 
     return(
-        <div className='movie-list'>
-            { filteredMovies.map((movie, i) => <MovieCard key={i} movie={movie}></MovieCard>) }
-        </div>
+        <>
+        { isLoading ? (
+            <div className='spinner'>
+                <span className='spin'>loading</span>
+            </div>
+        ): ''}
+        </>
     )
 }
 
-export default MovieList;
+export default Spinner;
