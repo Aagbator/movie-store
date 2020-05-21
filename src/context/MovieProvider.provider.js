@@ -56,7 +56,7 @@ export default class MovieProvider extends Component {
 
     filterMovieByText = (query) => {
         const movies = this.state.movies;
-        let result = movies.filter(movie => movie.title.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+        let result = movies.filter(movie => movie.fields.title.toLowerCase().indexOf(query.toLowerCase()) !== -1);
         this.setState({ filteredMovies: result });
     }
 
